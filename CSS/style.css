@@ -1,7 +1,7 @@
 * { box-sizing: border-box; }
 
 html, body {
-    height: 100vh;
+    min-height: 100%;
     margin: 0;
     padding: 0;
     border: 0;
@@ -12,13 +12,13 @@ html, body {
 
 body {
     overflow: hidden;
-    height: 100%;
 }
 
 
 .image_Wrap { 
     position: relative; 
-    height: 100vh;
+    height: 100%;
+    width: 100%;
 }
 
 .top_Bg_Svg {
@@ -76,8 +76,9 @@ body {
 
 header.grade {
     display: grid;
-    place-content: center start;
-    grid-template-columns: .7fr 1fr;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: .6fr 1fr .2fr;
 }
 
 header.grade:nth-child(1) { place-self: start; }
@@ -111,6 +112,7 @@ header.grade:nth-child(3) { place-self: end; }
     border-radius: 50%;
     width: 40%;
     grid-area: 2/1 / 3/2;
+    margin-left: 25%;
 }
 
 .bottom > article { grid-area: 3/1 / 3/3; }
@@ -172,12 +174,24 @@ header.grade:nth-child(3) { place-self: end; }
 
 @media screen and (max-width:375px) {
     body {
-        min-height: 100%;
         overflow: initial;
+    }
+
+    main {
+        position: relative;
     }
 
     .image_Wrap {
         position: absolute;
+    }
+
+    .top_Bg_Svg {
+        height: 18%;
+    }
+
+    .bottom_Bg_Svg {
+        width: unset;
+        height: 18%;
     }
     
     .site_Bg {
@@ -207,29 +221,59 @@ header.grade:nth-child(3) { place-self: end; }
         font-size: .8em;
     }
 
+    .top_Right {
+        padding-top: 5%;
+        gap: .5em;
+    }
+
     .grade {
         place-self: center !important;
     }
 
+    
     header.grade {
         place-content: center;
-        grid-template: .7fr 1fr / auto;
+        place-items: center;
+        grid-template: .2fr 1fr 1fr / auto;
+    }
+    
+    .grade > p {
+        grid-area: 3/1 / 4/2;
     }
 
     .top_Right > header {
         width: 21em;
+        height: 5em;
     }
 
     .star {
         place-self: center;
-        margin: 0;
+        margin: 7% 0 0 0;
+        grid-area: 2/1 / 3/2;
+    }
+
+    .star > img {
+        height: 1em;
     }
 
     .bottom_Half {
         flex-direction: column;
+        margin-top: 10%;
     }
 
     .bottom {
         width: unset;
+        font-size: 12px;
+        grid-template: .1fr .6fr 1fr / 1fr 3fr;
     }
+
+    .bottom > img {
+        margin-left: 25%;
+    }
+
+    .attribution {
+        display: none;
+        position: unset;
+    }
+
 }
