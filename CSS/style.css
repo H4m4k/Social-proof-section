@@ -166,3 +166,70 @@ header.grade:nth-child(3) { place-self: end; }
     color: hsl(333, 80%, 67%);
     font-weight: 400;
 }
+
+
+
+
+@media screen and (max-width:375px) {
+    body {
+        min-height: 100%;
+        overflow: initial;
+    }
+
+    .image_Wrap {
+        position: absolute;
+    }
+    
+    .site_Bg {
+       position: initial;
+       width: 100%;
+    }
+
+    .center_Transform {
+        transform: translate(0,0);
+    }
+
+    .top_Half {
+        flex-direction: column;
+    }
+
+    .top_Left {
+        text-align: center;
+    }
+
+    .top_Left > header > h1 {
+        margin: 0;
+        font-size: 2em;
+    }
+
+    .top_Left > article {
+        margin: 0;
+        font-size: .8em;
+    }
+
+    .grade {
+        place-self: center !important;
+    }
+
+    header.grade {
+        place-content: center;
+        grid-template: .7fr 1fr / auto;
+    }
+
+    .top_Right > header {
+        width: 21em;
+    }
+
+    .star {
+        place-self: center;
+        margin: 0;
+    }
+
+    .bottom_Half {
+        flex-direction: column;
+    }
+
+    .bottom {
+        width: unset;
+    }
+}
